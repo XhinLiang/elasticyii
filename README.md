@@ -1,12 +1,11 @@
-# ElasticSearch PHP client
+# ElasticYii
+ElasticSearch PHP client for yii
 ---
-[![Latest Stable Version](https://poser.pugx.org/xhinliang/elasticsearch/v/stable)](https://packagist.org/packages/xhinliang/elasticsearch)
-[![Total Downloads](https://poser.pugx.org/xhinliang/elasticsearch/downloads)](https://packagist.org/packages/xhinliang/elasticsearch)
-[![Latest Unstable Version](https://poser.pugx.org/xhinliang/elasticsearch/v/unstable)](https://packagist.org/packages/xhinliang/elasticsearch)
-[![License](https://poser.pugx.org/xhinliang/elasticsearch/license)](https://packagist.org/packages/xhinliang/elasticsearch)
-[![composer.lock](https://poser.pugx.org/xhinliang/elasticsearch/composerlock)](https://packagist.org/packages/xhinliang/elasticsearch)
-
-ElasticSearch is a distributed lucene powered search indexing, this is a PHP client for it
+[![Latest Stable Version](https://poser.pugx.org/xhinliang/elasticyii/v/stable)](https://packagist.org/packages/xhinliang/elasticyii)
+[![Total Downloads](https://poser.pugx.org/xhinliang/elasticyii/downloads)](https://packagist.org/packages/xhinliang/elasticyii)
+[![Latest Unstable Version](https://poser.pugx.org/xhinliang/elasticyii/v/unstable)](https://packagist.org/packages/xhinliang/elasticyii)
+[![License](https://poser.pugx.org/xhinliang/elasticyii/license)](https://packagist.org/packages/xhinliang/elasticyii)
+[![composer.lock](https://poser.pugx.org/xhinliang/elasticyii/composerlock)](https://packagist.org/packages/xhinliang/elasticyii)
 
 ## Usage
 
