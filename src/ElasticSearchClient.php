@@ -64,8 +64,9 @@ class ElasticSearchClient extends CApplicationComponent
         $this->initConfig($this->config);
     }
 
-    private function initConfig($config)
+    private function initConfig($config = array())
     {
+        $config = $config ? $config : array();
         if (is_string($config)) {
             $config = self::parseDsn($config);
         }

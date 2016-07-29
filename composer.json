@@ -10,14 +10,14 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Raymond Julin",
-      "email": "raymond.julin@gmail.com",
-      "homepage": "http://raymondjulin.com"
-    },
-    {
       "name": "Xhin Liang",
       "email": "xhinliang@gmail.com",
       "homepage": "http://xhinliang.win"
+    },
+    {
+      "name": "Raymond Julin",
+      "email": "raymond.julin@gmail.com",
+      "homepage": "http://raymondjulin.com"
     }
   ],
   "require": {
@@ -28,8 +28,8 @@
     "atoum/atoum": "dev-master@dev"
   },
   "autoload": {
-    "psr-0": {
-      "ElasticSearch": "src/"
-    }
+    "classmap": [
+      "src/"
+    ]
   }
 }
