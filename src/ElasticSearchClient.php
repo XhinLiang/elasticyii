@@ -5,7 +5,6 @@
  * @author xhinliang
  * @author Raymond Julin <raymond.julin@gmail.com>
  */
-
 class ElasticSearchClient extends CApplicationComponent
 {
     const DEFAULT_PROTOCOL = 'http';
@@ -85,6 +84,21 @@ class ElasticSearchClient extends CApplicationComponent
         $this->transConstruct($transport, $config['index'], $config['type']);
         $this->configuration($config);
     }
+
+    /**
+     * @author xhinliang
+     * @param $id
+     * @return bool
+     */
+    public function checkExist($id)
+    {
+        $queryResult = $this->get($id);
+        if (isset($queryResult['found']) && !$queryResult['found']) {
+            return false;
+        }
+        return true;
+    }
+
 
     /**
      * @param array|null $config

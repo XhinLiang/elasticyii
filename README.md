@@ -10,19 +10,9 @@ ElasticSearch PHP client for yii
 ## Usage
 
 ### Initial setup
-
-1. Install composer. `curl -s http://getcomposer.org/installer | php`
-2. Create `composer.json` containing:
-
-    ```js
-    {
-        "require" : {
-            "xhinliang/elasticsearch" : ">=2.0"
-        }
-    }
-    ```
-3. Run `./composer.phar install`
-4. Keep up-to-date: `./composer.phar update`
+```
+composer require xhinliang/elasticyii
+```
 
 
 
