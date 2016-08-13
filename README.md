@@ -42,8 +42,8 @@ You can define your configurations in the `config/main.php`
 ```
 1. `protocol`
 This option will define the protocol ElasticYii will use.
-- **http** means the http protocol, and the client will use ElasticSearchHTTP inside.
-- **memcached** means the memcached protocol, and the client will use ElasticSearchMemcached inside.
+- `http` means the http protocol, and the client will use ElasticSearchHTTP inside.
+- `memcached` means the memcached protocol, and the client will use ElasticSearchMemcached inside.
 
 2. `servers`
 The server ip and port. 
