@@ -1,6 +1,6 @@
 <?php // vim:set ts=4 sw=4 et:
 /**
- * This file is part of the ElasticSearch PHP client
+ * This file is part of the ElasticSearch PHP client for Yii
  *
  * @author xhinliang
  * @author Raymond Julin <raymond.julin@gmail.com>
@@ -72,11 +72,11 @@ class ElasticSearchClient extends CApplicationComponent
         $config = array_merge(self::$_defaults, $config);
         $protocol = $config['protocol'];
         if (!isset(self::$_protocols[$protocol])) {
-            throw new \Exception("Tried to use unknown protocol: $protocol");
+            throw new ElasticSearchException("Tried to use unknown protocol: $protocol");
         }
         $class = self::$_protocols[$protocol];
         if (null !== $config['timeout'] && !is_numeric($config['timeout'])) {
-            throw new \Exception("HTTP timeout should have a numeric value when specified.");
+            throw new ElasticSearchException("HTTP timeout should have a numeric value when specified.");
         }
         $server = is_array($config['servers']) ? $config['servers'][0] : $config['servers'];
         list($host, $port) = explode(':', $server);
@@ -99,7 +99,6 @@ class ElasticSearchClient extends CApplicationComponent
         return true;
     }
 
-
     /**
      * @param array|null $config
      * @return array|void
@@ -113,6 +112,14 @@ class ElasticSearchClient extends CApplicationComponent
         return null;
     }
 
+    /**
+     * Get a new ElasticSearch client with configuration
+     * 
+     * @author xhinliang
+     * @param array $config
+     * @return ElasticSearchClient
+     * @throws ElasticSearchException
+     */
     public static function connection($config = array())
     {
         if (!$config && ($url = getenv('ELASTICSEARCH_URL'))) {
@@ -121,24 +128,18 @@ class ElasticSearchClient extends CApplicationComponent
         if (is_string($config)) {
             $config = self::parseDsn($config);
         }
-
         $config = array_merge(self::$_defaults, $config);
-
         $protocol = $config['protocol'];
         if (!isset(self::$_protocols[$protocol])) {
-            throw new \Exception("Tried to use unknown protocol: $protocol");
+            throw new ElasticSearchException("Tried to use unknown protocol: $protocol");
         }
         $class = self::$_protocols[$protocol];
-
         if (null !== $config['timeout'] && !is_numeric($config['timeout'])) {
-            throw new \Exception("HTTP timeout should have a numeric value when specified.");
+            throw new ElasticSearchException("HTTP timeout should have a numeric value when specified.");
         }
-
         $server = is_array($config['servers']) ? $config['servers'][0] : $config['servers'];
         list($host, $port) = explode(':', $server);
-
         $transport = new $class($host, $port, $config['timeout']);
-
         $client = new self();
         $client->transConstruct($transport, $config['index'], $config['type']);
         $client->configuration($config);
@@ -200,10 +201,10 @@ class ElasticSearchClient extends CApplicationComponent
 
         try {
             $type = $mapping->config('type');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
         } // No type is cool
         if (isset($type) && !$this->passesTypeConstraint($type)) {
-            throw new Exception("Cant create mapping due to type constraint mismatch");
+            throw new ElasticSearchException("Cant create mapping due to type constraint mismatch");
         }
 
         return $this->request('_mapping', 'PUT', $mapping->export(), true);
@@ -411,7 +412,7 @@ class ElasticSearchClient extends CApplicationComponent
             $this->bulk = null;
             return $result;
         }
-        throw  new Exception('bulk error!');
+        throw  new ElasticSearchException('bulk error!');
     }
 
     /**
