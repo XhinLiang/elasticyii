@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/xhinliang/elasticyii/license)](https://packagist.org/packages/xhinliang/elasticyii)
 [![composer.lock](https://poser.pugx.org/xhinliang/elasticyii/composerlock)](https://packagist.org/packages/xhinliang/elasticyii)
 
-ElasticSearch PHP client for yii
+ElasticSearch PHP client for Yii 1.1
 
 ## Usage
 
