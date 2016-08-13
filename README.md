@@ -9,11 +9,68 @@ ElasticSearch PHP client for yii
 
 ## Usage
 
-### Initial setup
+### install
 ```
 composer require xhinliang/elasticyii
 ```
 
+### setup
+#### basic
+Just add the component in your `config/main.php`
+```
+'components' => array(
+    'esclient' => array(
+        'class' => 'ElasticSearchClient',
+    ),
+),
+```
+#### Personalization
+You can define your configurations in the `config/main.php`
+```
+'components' => array(
+    'esclient' => array(
+        'class' => 'ElasticSearchClient',
+        'config' => array(
+            'protocol' => 'http',
+            'servers' => '127.0.0.1:9200',
+            'index' => 'yourindex',
+            'type' => 'yourtype',
+            'timeout' => null,
+        )
+    ),
+),
+```
+1. protocol
+This option will define the protocol ElasticYii will use.
+- **http** means the http protocol, and the client will use ElasticSearchHTTP inside.
+- **memcached** means the memcached protocol, and the client will use ElasticSearchMemcached inside.
 
+2. servers
+The server ip and port. 
+For example
+```
+`servers` => `222.22.22.44:9200'
+```
+default `127.0.0.1:9200`
 
+3. index, type
+the default `index` and `type`
+
+4. timeout
+the timeout, can be `null` or number.
+
+### use
+just enjoy it.
+```
+$esResult = Yii::app()->esclient
+    ->setIndex("index")
+    ->setType("type")
+    ->index($json, $id);
+    
+$esResult = Yii::app()
+    ->esclient
+    ->setIndex($type)
+    ->setType($group)
+    ->get($id);
+```
 
