@@ -1,6 +1,5 @@
 # ElasticYii
 ElasticSearch PHP client for yii
----
 [![Latest Stable Version](https://poser.pugx.org/xhinliang/elasticyii/v/stable)](https://packagist.org/packages/xhinliang/elasticyii)
 [![Total Downloads](https://poser.pugx.org/xhinliang/elasticyii/downloads)](https://packagist.org/packages/xhinliang/elasticyii)
 [![Latest Unstable Version](https://poser.pugx.org/xhinliang/elasticyii/v/unstable)](https://packagist.org/packages/xhinliang/elasticyii)
@@ -9,13 +8,13 @@ ElasticSearch PHP client for yii
 
 ## Usage
 
-### install
+### Install
 ```
 composer require xhinliang/elasticyii
 ```
 
-### setup
-#### basic
+### Setup
+#### Basic
 Just add the component in your `config/main.php`
 ```
 'components' => array(
@@ -59,7 +58,7 @@ the default `index` and `type`
 4. timeout
 the timeout, can be `null` or number.
 
-### use
+### Use
 just enjoy it.
 ```
 $esResult = Yii::app()->esclient
