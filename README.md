@@ -40,12 +40,12 @@ You can define your configurations in the `config/main.php`
     ),
 ),
 ```
-1. `protocol`
+##### `protocol`
 This option will define the protocol ElasticYii will use.
 - `http` means the http protocol, and the client will use ElasticSearchHTTP inside.
 - `memcached` means the memcached protocol, and the client will use ElasticSearchMemcached inside.
 
-2. `servers`
+##### `servers`
 The server ip and port. 
 For example
 ```
@@ -53,7 +53,7 @@ For example
 ```
 default `127.0.0.1:9200`
 
-3. `index`, `type`
+##### `index`, `type`
 the default `index` and `type`
 For example
 ```
@@ -61,8 +61,8 @@ For example
 'type' => 'yourtype',
 ```
 
-4. `timeout`
-the timeout, can be `null` or number.
+##### `timeout`
+the timeout, can be `null` or a number.
 ```
 'timeout' => 1000
 ```
